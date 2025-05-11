@@ -26,14 +26,13 @@ SAMPLESHEET=../../metadata/samplesheet.csv
 GENOME=../../genome/GCF_000001405.26_GRCh38_genomic.fna
 GFF=../../genome/GCF_000001405.26_GRCh38_genomic.gff  # Optional, if available
 
-# Run nf-core/atacseq pipeline
+# Run nf-core/atacseq pipeline (if pipe fails add flag -resume to commands below to reinitialize)
 nextflow run nf-core/atacseq -r 2.1.2 \
     --input ${SAMPLESHEET} \
     --fasta ${GENOME} \
     --gff ${GFF} \
     --read_length 75 \
     --outdir out \
-    -resume \
     -profile xanadu \
     --singularity_pull_docker_container true \
     -with-trace trace.txt \
